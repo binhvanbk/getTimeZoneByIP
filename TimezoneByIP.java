@@ -77,10 +77,7 @@ public class TimezoneByIP {
 		ArrayList<String> proxylist = (ArrayList<String>) Files.readAllLines(path);
 		for(String str : proxylist) {
 			String[] arr = str.split(":");
-			/*
-			 * System.out.println("ip: " + arr[0]); System.out.println("port: " + arr[1]);
-			 * System.out.println("user: " + arr[2]); System.out.println("pass: " + arr[3]);
-			 */
+			
 			proxy p= new proxy(arr[0], arr[1], arr[2], arr[3]);
 			proxies.add(p);
 		}
@@ -96,23 +93,13 @@ public class TimezoneByIP {
     	proxies = getProxy();
 		time.sleep(3);
 		
-		//getListTimezoneByList();
 		getListTimezone();
-		//getLocationByIP("115.74.6.148");
-		//shuffleProxy();
+		
 		
 
 
     }
-    
-    public static void getListTimezoneByList() {
-    	String path = "src/assets/timezone.txt";
-    	int[] acc = {532, 541, 546 ,548, 549 ,553};
-    	for (int k = 0; k < acc.length; k++) {
-			String str= getTimeZone(proxies.get(acc[k]).getIp(), acc[k]);
-			System.out.println(acc[k] + "|" + str);
-		}
-    }
+   
     
     public static void getListTimezone() {
     	String path = "src/assets/timezone30.txt";
